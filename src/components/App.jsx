@@ -1,15 +1,36 @@
 // import { render } from '@testing-library/react';
 import React, { Component } from 'react';
 import InputForm from './InputForm/InputForm';
-import contactDefault from './DataDefault/Data.json';
+// import contactDefault from './DataDefault/Data.json';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 
 export class App extends Component {
   state = {
-    contacts: contactDefault,
+    // contacts: contactDefault,
+    contacts: [],
     filter: '',
   };
+
+  componentDidMount() {
+    console.log('App componentDidMount');
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('ComponentDidUpdate');
+
+    if (this.state.contacts !== prevState.contacts) {
+      console.log('Обновилось поле contacts');
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+    // console.log(prevState);
+    // console.log(this.state);
+  }
 
   onAddContact = contact => {
     if (this.state.contacts.some(item => item.name === contact.name)) {
@@ -41,6 +62,7 @@ export class App extends Component {
   };
 
   render() {
+    console.log('App render');
     return (
       <div
         style={{
