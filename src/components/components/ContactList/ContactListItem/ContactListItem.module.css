@@ -14,19 +14,25 @@
 .list:not(:last-child) {
   margin-bottom: 5px;
 }
-
-.button {
+.contactName {
+  margin-right: 15px;
+}
+.btn {
+  display: inline-block;
   border-radius: 4px;
-  border: transparent 1px solid;
+  border: none;
+  margin-left: 10px;
   padding: 5px;
-  width: 90px;
-  cursor: pointer;
-  background-color: #ccc;
+  font-size: 12px;
+  width: fit-content;
+  text-transform: uppercase;
+  background-color: rgb(165, 158, 158);
 }
 
-.button:hover,
-.button:focus {
+.btn:hover,
+.btn:focus {
+  cursor: pointer;
+  outline: none;
   background-color: rgb(36, 55, 158);
-  border: none;
   color: white;
 }

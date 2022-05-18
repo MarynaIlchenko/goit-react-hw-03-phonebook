@@ -5,7 +5,7 @@ import ContactListItem from './ContactListItem';
 
 const ContactList = ({ contacts, deleteCont }) => {
   return (
-    <div className={style.contactBlock}>
+    <ul className={style.contactBlock}>
       {contacts.map(contact => (
         <ContactListItem
           key={contact.id}
@@ -15,7 +15,7 @@ const ContactList = ({ contacts, deleteCont }) => {
           deleteCont={deleteCont}
         />
       ))}
-    </div>
+    </ul>
   );
 };
 
