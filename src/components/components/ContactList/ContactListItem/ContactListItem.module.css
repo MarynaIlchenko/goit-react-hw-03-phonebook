@@ -1,19 +1,22 @@
-.listBlock {
+/* .listBlock {
   margin-left: 0;
   padding-left: 0;
   display: flex;
   list-style: none;
   align-items: center;
   justify-content: space-between;
-}
+} */
 
 .list {
+  display: flex;
+  /* justify-content: end; */
   max-width: 400px;
 }
 
 .list:not(:last-child) {
   margin-bottom: 5px;
 }
+
 .contactName {
   margin-right: 15px;
 }
